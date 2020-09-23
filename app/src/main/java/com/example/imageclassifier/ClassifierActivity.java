@@ -37,16 +37,12 @@ import java.util.List;
 
 public class ClassifierActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int REQUEST_WRITE_PERMISSION = 786;
-    private static final String SINLGE_IMAGE_TEST_LOCALLY ="single_image_test_locally" ;
-    private static final String WHICH_PLATFORM = "which_platform";
     public final int PICK_IMAGE = 1;
     ImageView imageView = null;
-    TextView isMeme = null;
+    TextView isImage = null;
     TextView pbText = null;
     Button nextImage = null;
     ProgressBar progressBar = null;
-    File mUploadmageFile = null;
-    List<File> uMemeTestFiles = null;
     Bitmap pickedBitmap = null;
 
 
@@ -70,11 +66,11 @@ public class ClassifierActivity extends AppCompatActivity implements View.OnClic
     private void initialiseViews() {
 
         imageView = (ImageView) findViewById(R.id.preview);
-        isMeme = (TextView) findViewById(R.id.textimage);
+        isImage = (TextView) findViewById(R.id.textimage);
         pbText = (TextView) findViewById(R.id.pbText);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
-        isMeme.setVisibility(View.GONE);
+        isImage.setVisibility(View.GONE);
         pbText.setVisibility(View.GONE);
         nextImage = (Button) findViewById(R.id.next_image);
         nextImage.setOnClickListener(this);
@@ -172,7 +168,7 @@ public class ClassifierActivity extends AppCompatActivity implements View.OnClic
             progressBar.setVisibility(View.VISIBLE);
             pbText.setVisibility(View.VISIBLE);
             imageView.setVisibility(View.GONE);
-            isMeme.setVisibility(View.GONE);
+            isImage.setVisibility(View.GONE);
         }
 
         @Override
@@ -189,11 +185,11 @@ public class ClassifierActivity extends AppCompatActivity implements View.OnClic
             super.onPostExecute(s);
             progressBar.setVisibility(View.GONE);
             pbText.setVisibility(View.GONE);
-            isMeme.setVisibility(View.VISIBLE);
+            isImage.setVisibility(View.VISIBLE);
             imageView.setVisibility(View.VISIBLE);
 
             imageView.setImageBitmap(bitmap);
-            isMeme.setText(s);
+            isImage.setText(s);
         }
     }
 

@@ -17,6 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/menu_button_margin"
         android:padding="@dimen/menu_button_padding"
+        android:textColor="@color/colorAccent"
         android:text="Detect"/>
     <Button android:id="@+id/About"
         android:layout_width="match_parent"
